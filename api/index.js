@@ -95,7 +95,8 @@ app.post('/api/users/register', async (req, res) => {
 
     return res.status(201).json({ message: 'User registered successfully', user })
   } catch (err) {
-    console.error('Register error:', err)
+    console.error('Register error:', err.message || err)
+    console.error('Full error details:', err)
     return res.status(500).json({ error: 'Internal server error' })
   }
 })
